@@ -1,0 +1,38 @@
+<p>first-component works!</p>
+<p>
+  <button color="primary" mat-raised-button> test</button>
+</p>
+
+<table [dataSource]="dataSource$" class="mat-elevation-z8" mat-table>
+  <ng-container matColumnDef="id">
+    <th *matHeaderCellDef mat-header-cell> ID</th>
+    <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="firstname">
+    <th *matHeaderCellDef mat-header-cell> Firstname</th>
+    <td *matCellDef="let element" mat-cell> {{element.firstName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastname">
+    <th *matHeaderCellDef mat-header-cell> Lastname</th>
+    <td *matCellDef="let element" mat-cell> {{element.lastName}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th *matHeaderCellDef class="align-right" mat-header-cell> Aktion</th>
+    <td *matCellDef="let element" class="align-right" mat-cell text>
+      <button (click)="onDelete(element.id)" [disabled]="deleteClicked">
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+</table>
+
+
+
+
+

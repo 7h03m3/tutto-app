@@ -1,0 +1,23 @@
+.main-sidenav-container {
+  width: auto;
+  height: 93%;
+  background: white;
+}
+
+
+.main-sidenav {
+  height: auto;
+  width: 11rem;
+  background: white;
+}
+
+
+.content {
+  flex: auto;
+  height: auto;
+  width: auto;
+  margin: 10px;
+}
+
+
+

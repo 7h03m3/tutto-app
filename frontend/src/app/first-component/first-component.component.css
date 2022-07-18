@@ -1,0 +1,14 @@
+table {
+  width: 95%;
+  margin: 10px;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.align-right {
+  text-align: right;
+  justify-content: flex-end;
+}
+

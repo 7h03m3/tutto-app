@@ -1,0 +1,21 @@
+<mat-drawer-container class="main-sidenav-container">
+  <mat-drawer #drawer [(opened)]="opened" class="main-sidenav" id="side" mode="side" opened>
+    <mat-selection-list [multiple]="false">
+      <span *ngFor="let entries of menuEntries">
+        <mat-list-option *ngIf="!entries.hide" routerLink="{{entries.link}}">
+          {{entries.name}}
+          <mat-icon [routerLink]="entries.link" mat-list-icon>{{entries.icon}}</mat-icon>
+        </mat-list-option>
+      </span>
+    </mat-selection-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+

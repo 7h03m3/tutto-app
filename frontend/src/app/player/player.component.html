@@ -1,0 +1,46 @@
+<mat-card class="mat-elevation-z0 outline">
+  <table [dataSource]="dataSource$" mat-table>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell> ID</th>
+      <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstname">
+      <th *matHeaderCellDef mat-header-cell> Vorname</th>
+      <td *matCellDef="let element" mat-cell> {{element.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastname">
+      <th *matHeaderCellDef mat-header-cell> Nackname</th>
+      <td *matCellDef="let element" mat-cell> {{element.lastName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nickname">
+      <th *matHeaderCellDef mat-header-cell> Spitzname</th>
+      <td *matCellDef="let element" mat-cell> {{element.nickName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th *matHeaderCellDef class="align-right" mat-header-cell> Aktion</th>
+      <td *matCellDef="let element" class="align-right" mat-cell text>
+        <button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="onDelete(element.id, element.firstName, element.lastName)" mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Löschen</span>
+          </button>
+          <button (click)="onEdit(element.id)" mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Ändern</span>
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+</mat-card>
+
